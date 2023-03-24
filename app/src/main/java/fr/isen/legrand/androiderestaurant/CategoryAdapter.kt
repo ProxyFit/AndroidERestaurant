@@ -1,4 +1,5 @@
-// Importation des classes nécessaires pour le fonctionnement de l'adapter
+// MenuAdapter.kt
+
 package fr.isen.legrand.androiderestaurant
 
 import android.content.Context
@@ -9,8 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 // Définition de la classe "MenuAdapter" qui étend la classe "RecyclerView.Adapter"
-class MenuAdapter(private val context: Context, private val menuList: List<String>) :
-    RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
+class CategoryAdapter(private val context: Context, private val menuList: List<String>) :
+    RecyclerView.Adapter<CategoryAdapter.MenuViewHolder>() {
 
     // Classe interne qui contient les éléments de la vue
     inner class MenuViewHolder(view: View) : RecyclerView.ViewHolder(view) {
