@@ -1,5 +1,3 @@
-// CategoryActivity.kt
-
 package fr.isen.legrand.androiderestaurant
 
 import android.os.Bundle
@@ -7,7 +5,6 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
@@ -54,20 +51,21 @@ class CategoryActivity : AppCompatActivity() {
 
     private fun parseItems(response: JSONObject): List<Items> {
         val data = response.getJSONArray("data").toString()
-        val itemType = object : TypeToken<List<Items>>() {}.type
+        val itemType = object : TypeToken<List<Data>>() {}.type
+        val dataList: List<Data> = Gson().fromJson(data, itemType)
 
-        return Gson().fromJson(data, itemType)
+        return dataList.flatMap { it.items }
     }
 
-    private fun getMenuList(items: List<Items>, category: String): List<String> {
-        return items.filter { it.nameFr == category }.map { it.nameFr ?:"" }
+    private fun getMenuList(items: List<Items>, category: String): List<Items> {
+        return items.filter { it.categNameFr == category }
     }
 
     private fun parseMenuItems(items: List<Items>) {
         val menuItems = when (intent.getStringExtra("categorie")) {
-            CATEGORY_ENTREES -> getMenuList(items, "1")
-            CATEGORY_PLATS -> getMenuList(items, "2")
-            CATEGORY_DESSERTS -> getMenuList(items, "3")
+            CATEGORY_ENTREES -> getMenuList(items, getString(R.string.entrees))
+            CATEGORY_PLATS -> getMenuList(items, getString(R.string.plats))
+            CATEGORY_DESSERTS -> getMenuList(items, getString(R.string.desserts))
             else -> emptyList()
         }
 

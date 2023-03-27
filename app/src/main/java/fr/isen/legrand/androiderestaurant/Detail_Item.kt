@@ -36,6 +36,13 @@ data class Items(
     @SerializedName("prices") var prices: ArrayList<Prices> = arrayListOf()
 )
 
+data class ListMenu(
+
+    @SerializedName("data") var data: ArrayList<Data> = arrayListOf()
+    // On vient recuperer la list "Data"
+
+):java.io.Serializable
+
 data class Prices(
     @SerializedName("id") var id: String? = null,
     @SerializedName("id_pizza") var idPizza: String? = null,
