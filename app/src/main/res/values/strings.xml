@@ -6,6 +6,8 @@
     <string name="plats">Plats</string>
     <string name="desserts">Desserts</string>
     <string name="mainimage">MainImage</string>
+    <string name="price_format">%s €</string>
+
 
     <array name="entrees">
         <item>Salade de tomates</item>
