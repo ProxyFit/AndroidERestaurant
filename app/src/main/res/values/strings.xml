@@ -7,6 +7,8 @@
     <string name="desserts">Desserts</string>
     <string name="mainimage">MainImage</string>
     <string name="price_format">%s €</string>
+    <string name="plate_image_description">Image du plat</string>
+
 
 
     <array name="entrees">
