@@ -8,8 +8,24 @@
     <string name="mainimage">MainImage</string>
     <string name="price_format">%s €</string>
     <string name="plate_image_description">Image du plat</string>
+    <string name="price_button_text">Afficher le prix</string>
 
 
+    <string-array name="quantities_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+
+
+        <!-- Ajout autant d'éléments qu'on le souhaite -->
+    </string-array>
 
     <array name="entrees">
         <item>Salade de tomates</item>
