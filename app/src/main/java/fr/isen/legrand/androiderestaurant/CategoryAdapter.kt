@@ -52,6 +52,8 @@ class CategoryAdapter(private val context: Context, private val menuList: List<I
             }
         } catch (e: IndexOutOfBoundsException) {
             Log.e("CategoryAdapter", "Index out of bounds at position $position")
+        } catch (e: IllegalArgumentException) {
+            Log.e("CategoryAdapter", "IllegalArgumentException: ${e.message}")
         }
     }
 

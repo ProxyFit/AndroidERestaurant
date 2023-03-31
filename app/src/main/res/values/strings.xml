@@ -2,7 +2,7 @@
     <string name="app_name">AndroidERestaurant</string>
     <string name="home_title">Bienvenue chez Gusteau</string>
     <string name="detail_plat_activity_label">Détails du plat</string>
-    <string name="entrees">Entrees</string>
+    <string name="entrees">Entrées</string>
     <string name="plats">Plats</string>
     <string name="desserts">Desserts</string>
     <string name="mainimage">MainImage</string>
