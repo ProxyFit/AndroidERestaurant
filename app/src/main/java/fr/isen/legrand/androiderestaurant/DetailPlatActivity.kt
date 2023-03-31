@@ -1,12 +1,12 @@
 package fr.isen.legrand.androiderestaurant
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.viewpager.widget.ViewPager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.squareup.picasso.Picasso
@@ -27,17 +27,17 @@ class DetailPlatActivity : AppCompatActivity() {
 
         // Récupérer les éléments de la vue en utilisant les nouveaux IDs
         val imageView = findViewById<ImageView>(R.id.plateImage)
+        val viewPager = findViewById<ViewPager>(R.id.viewPager)
         val plateName = findViewById<TextView>(R.id.plateName)
         val plateDescription = findViewById<TextView>(R.id.plateDescription)
 
-        if (selectedItem.images.isNotEmpty()) {
-            Picasso.get()
-                .load(selectedItem.images[0])
-                .placeholder(R.drawable.placeholder_image)
-                .error(R.drawable.error_image)
-                .into(imageView)
-        } else {
-            imageView.setImageResource(R.drawable.error_image)
+        // Afficher les images du plat dans le ViewPager
+        val imageAdapter = ImageViewAdapter(this, selectedItem.images)
+        viewPager.adapter = imageAdapter
+
+        // Afficher la première image du plat dans l'ImageView
+        selectedItem.images.firstOrNull()?.let {
+            Picasso.get().load(it).into(imageView)
         }
 
         // Mettre à jour les TextView avec les informations du plat sélectionné
